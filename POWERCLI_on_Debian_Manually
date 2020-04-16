@@ -1,0 +1,31 @@
+** powershell need to be installed first**
+
+login to the server w/o internet
+apt-get update
+sudo apt install unzip
+
+login to desktop/server with internet
+download powershell from https://github.com/PowerShell/PowerShell/
+copy to the server w/o internet
+
+back to server without internet
+dpkg -i powershell-lts_7.0.0-1.debian.9_amd64.deb
+sudo apt-get -f install
+After apt-get installed all the missing packages, you can run the dpkg -i powershell*.deb command again and all should work fine.
+pwsh
+locate module path by using:
+($env:PSModulePath).split(":")
+-----------------------------------
+$($env:PSModulePath).split(":")
+/usr/local/share/powershell/Modules
+/opt/microsoft/powershell/7-lts/Modules
+--------------------------------------
+
+login to desktop/server with internet
+download powercli https://code.vmware.com/web/tool/11.3.0/vmware-powercli
+copy to the server w/o internet
+
+cd /opt/microsoft/powershell/6/Modules
+sudo unzip ./VMware-PowerCLI-11.3.0-13990089.zip
+
+Import-Module VMware.PowerCLI
